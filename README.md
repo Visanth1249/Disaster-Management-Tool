@@ -1,152 +1,149 @@
-# Depth Estimation & Semantic Segmentation Project
+**Depth Estimation and Semantic Segmentation Project**
 
-## 🚀 Project Overview
+**Project Overview**
+This project demonstrates the use of deep learning models for:
 
-This project harnesses the power of state-of-the-art deep learning models to **analyze, understand, and quantify scenes from RGB images**. By combining **depth estimation** and **semantic segmentation**, it enables you to not only label objects in a scene but also determine their spatial depth—unlocking a wide range of applications from robotics to disaster response.
+Depth Estimation of a scene.
+Semantic Segmentation to label objects in an image and compute their depths.
 
----
+**Key Highlights**
+Depth Estimation Model: Intel DPT Large
+Semantic Segmentation Model: NVIDIA SegFormer
+Input: An RGB image
 
-## 🌟 Key Features
+**Outputs:**
+Depth Map visualized using a plasma colormap.
+Segmentation Map with boundaries and centroids for objects.
+Tabular Report displaying object types and their depth values.
 
-- **Depth Estimation**: Leveraging the Intel DPT Large model, the project generates high-resolution depth maps, visualized with a vivid plasma colormap for intuitive understanding.
-- **Semantic Segmentation**: Utilizing NVIDIA’s SegFormer, it accurately labels and segments objects within an image, drawing boundaries and pinpointing centroids.
-- **Comprehensive Reporting**: Outputs a detailed table summarizing each detected object’s type, centroid coordinates, and average depth value.
-- **Visual Outputs**: Generates easy-to-interpret maps and overlays for both depth and segmentation results.
+**Setup and Usage Instructions**
 
----
+**1. Prerequisites**
+Ensure you have the following installed:
 
-## 🛠️ Setup & Usage Instructions
+Python (version 3.8 or higher).
+pip for installing Python libraries.
+Familiarity with the terminal or command line.
 
-### 1. Prerequisites
+**2. Clone or Upload the Project**
+Create a project directory on your local machine or Swecha.
+Add the following files to your project directory:
+The Python script: depth_segmentation.py
 
-- **Python**: Version 3.8 or higher
-- **pip**: For installing dependencies
-- **Basic command line skills**
+The test image file(s):sampleimage
 
-### 2. Clone or Upload the Project
+**3. Directory Structure**
+Organize your project directory as follows:
 
-Create a directory on your local machine or on [Swecha](https://swecha.org/) and add the following files:
-
-- `depth_segmentation.py` (main script)
-- `requirements.txt` (dependencies)
-- Place your test images in the `test_images/` folder
-
-### 3. Directory Structure
 
 ```
 depth-estimation-segmentation/
 │
 ├── depth_segmentation.py       # Main script
 ├── requirements.txt            # Dependencies
-├── test_images/                # Input images
+├── test_images/                # Folder for input images
 │   ├── image1.jpg
 │   ├── image2.png
-│   └── ...
-└── outputs/                    # Outputs (created after running the script)
+│   └── ...                     # Add all your test images here
+└── outputs/                    # Outputs (will be created after running the script)
 ```
 
-### 4. Install Dependencies
+**4. Install Required Dependencies**
+Open a terminal in the project directory.
+Run the following command to install the required Python libraries:
 
-```bash
-pip install -r requirements.txt
-```
+`pip install -r requirements.txt`
 
-### 5. Configure the Script
+**5**. **Verify the Python Script**
+Open the depth_segmentation.py file and verify:
+Image Path: Ensure the correct file name and path in the script:
 
-- **Set the Image Path**:  
-  Open `depth_segmentation.py` and update the following line to point to your image:
-  ```python
-  image_path = 'test_images/your_image.jpg'
-  ```
-- **Check Syntax**:  
-  Ensure indentation and syntax are correct for your environment.
 
-### 6. Run the Project
+`image_path = 'Your image path'`
 
-```bash
-python depth_segmentation.py
-```
+change this path with your image path
 
----
+Ensure indentation and syntax are correct.
 
-## 🧠 Model Details
+**6. Run the Project**
+Run the Python script using this command:
 
-- **Depth Estimation**
-  - **Model**: Intel DPT Large
-  - **Source**: [Intel Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo)
-  - **Description**: Trained on large-scale datasets for highly accurate depth predictions.
+`python depth_segmentation.py`
 
-- **Semantic Segmentation**
-  - **Model**: NVIDIA SegFormer
-  - **Source**: [NVIDIA Research](https://github.com/NVlabs/SegFormer)
-  - **Description**: Lightweight transformer-based model for efficient and precise segmentation.
+**Model Details**
+**Depth Estimation:**
+Model: Intel DPT Large
+Description: Pre-trained on large-scale datasets for precise depth estimation.
+Source: Intel Open Model Zoo.
 
----
+**Semantic Segmentation:**
+Model: NVIDIA SegFormer
+Description: Lightweight transformer-based model designed for efficient segmentation.
+Source: NVIDIA Research.
 
-## 📊 Outputs
+**Outputs**
+**1. Depth Map**
+Displays the depth of the scene with a color gradient (e.g., plasma colormap).
 
-### 1. Depth Map
-- Visualizes the scene’s depth using a plasma color gradient, making it easy to interpret distances at a glance.
+**2. Segmentation Map**
+Assigns class labels to objects in the image (e.g., Road, Car, Building).
+Marks boundaries and centroids for each detected object.
 
-### 2. Segmentation Map
-- Assigns class labels (e.g., Road, Car, Building) to each object.
-- Draws clear boundaries and marks centroids for each detected object.
+**3. Object Depth Table**
+A table listing the following for each detected object:
 
-### 3. Object Depth Table
+Object Name: (e.g., Road, Car).
+Centroid: Coordinates of the object’s center.
+Depth at Centroid: Average depth value at the centroid.
 
-| Object    | Centroid   | Depth at Centroid |
-|-----------|------------|-------------------|
-| Road      | (100, 200) | 3.56              |
-| Building  | (250, 450) | 8.74              |
+Example Output Table:
+| Object | Centroid  |Depth at Centroid |
+|--------|-----------|------------------|
+|Road    |(100, 200) |    	3.56        |
+|--------|-----------|__________________|
+|Building| (250, 450)|       8.74       |
+|--------|-----------|__________________|
 
-*(See the `sampleoutput` file for reference visualizations.)*
 
----
 
-## 🌍 Real-World Applications
+**Example Visual Outputs**
+**Depth Map:**
+Displays a gradient map showing the distance of objects from the camera.
 
-This project is not just a technical demo—it’s a practical tool for:
+**Segmentation Map:**
+Highlights objects in the scene with labeled boundaries and centroid markers.
 
-- **Disaster Response**: Compare pre- and post-disaster images to generate semantic graphs, identify damaged areas, and prioritize emergency aid based on object changes and depth analysis.
-- **Autonomous Vehicles & Robotics**: Enhance scene understanding for navigation and obstacle avoidance.
-- **Smart City Monitoring**: Track changes in infrastructure and urban environments over time.
+For output reference please see the sampleoutput file
 
----
+**Key Commands Recap**
+Install Dependencies:
 
-## 📝 Key Commands Recap
+`pip install -r requirements.txt`
 
-- **Install Dependencies**:  
-  `pip install -r requirements.txt`
-- **Run the Script**:  
-  `python depth_segmentation.py`
+Run the Script:
 
----
+`python depth_segmentation.py`
 
-## 🤝 Share & Collaborate
+Share the Project
 
-When sharing this project, include:
+**Distribute the following files:**
 
-- `depth_segmentation.py`
-- `requirements.txt`
-- A few sample images in `test_images/`
-- This `README.md` for guidance
 
-**Tip:** Always follow the directory structure and instructions for a seamless experience!
+depth_segmentation.py
 
----
+requirements.txt
 
-## 💡 Contributing
+A few sample test images in the test_images folder.
 
-Pull requests, issues, and suggestions are welcome! Help us make this project even more impactful.
+This README.md file for guidance.
+Ensure users follow the directory structure and instructions provided above for seamless execution.
+ 
+ project Done by 
 
----
+ Name           : University Id 
+ 
+ B. Ajith kumar :2200080242
 
-## 📬 Contact
+ N. Sai krishna :2200080251
 
-For questions, collaborations, or support, open an issue or reach out via GitHub discussions.
-
----
-
-**Empower your images with AI-driven scene understanding—depth, semantics, and actionable insights, all in one place!**
-
----
+ K.Visanth Keerthan Sai:2200080236
