@@ -1,0 +1,25 @@
+This project leverages advanced deep learning techniques to perform depth estimation and semantic segmentation on images, with a strong focus on disaster response and scene analysis. Using state-of-the-art models—Intel DPT Large for depth estimation and NVIDIA SegFormer for semantic segmentation—the system processes an input RGB image to produce:
+
+A depth map that visualizes the distance of objects from the camera.
+
+A segmentation map that labels each pixel according to object class (e.g., road, building, car, as well as disaster-specific classes like collapsed buildings, fallen trees, and debris).
+
+A tabular report listing detected objects, their centroid coordinates, and their depth values.
+
+A semantic relationship graph that maps the spatial structure and proximity of objects within the scene.
+
+Key Applications:
+
+Disaster Assessment: By comparing pre- and post-disaster images, the project can identify and map changes such as collapsed buildings and blocked roads, supporting rapid and automated damage assessment. This approach aligns with recent research that highlights the value of combining segmentation and classification for post-disaster management, enabling faster, more objective, and large-scale analysis compared to manual methods.
+
+Emergency Response Prioritization: The semantic graph and depth data help emergency teams quickly locate and prioritize aid to the most affected or inaccessible areas, improving the efficiency of rescue and relief operations.
+
+Urban and Infrastructure Monitoring: Beyond disaster scenarios, the system can be used for ongoing monitoring of urban environments, infrastructure, and environmental changes.
+
+Technical Highlights:
+
+Automated, pixel-level scene understanding using deep neural networks.
+
+Support for disaster-specific object classes to enhance relevance in real-world crisis scenarios.
+
+Visual and structural outputs (maps, tables, graphs) that are actionable and interpretable for both technical and non-technical stakeholders.
