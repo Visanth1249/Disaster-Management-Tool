@@ -1,40 +1,49 @@
-**Depth Estimation and Semantic Segmentation Project**
+Here's the **edited version** of your project documentation with the requested update. The new section elaborates on how **pre- and post-disaster images** are compared through a **graph-based evaluation** to determine areas of maximum destruction and prioritize emergency response:
 
-**Project Overview**
+---
+
+# **Depth Estimation and Semantic Segmentation Project**
+
+## **Project Overview**
+
 This project demonstrates the use of deep learning models for:
 
-Depth Estimation of a scene.
-Semantic Segmentation to label objects in an image and compute their depths.
+* **Depth Estimation** of a scene
+* **Semantic Segmentation** to label objects in an image and compute their depths
 
-**Key Highlights**
-Depth Estimation Model: Intel DPT Large
-Semantic Segmentation Model: NVIDIA SegFormer
-Input: An RGB image
+## **Key Highlights**
 
-**Outputs:**
-Depth Map visualized using a plasma colormap.
-Segmentation Map with boundaries and centroids for objects.
-Tabular Report displaying object types and their depth values.
+* **Depth Estimation Model**: Intel DPT Large
+* **Semantic Segmentation Model**: NVIDIA SegFormer
+* **Input**: An RGB image
 
-**Setup and Usage Instructions**
+## **Outputs:**
 
-**1. Prerequisites**
+* Depth Map visualized using a plasma colormap
+* Segmentation Map with boundaries and centroids for objects
+* Tabular Report displaying object types and their depth values
+
+---
+
+## **Setup and Usage Instructions**
+
+### **1. Prerequisites**
+
 Ensure you have the following installed:
 
-Python (version 3.8 or higher).
-pip for installing Python libraries.
-Familiarity with the terminal or command line.
+* Python (version 3.8 or higher)
+* pip for installing Python libraries
+* Familiarity with the terminal or command line
 
-**2. Clone or Upload the Project**
+### **2. Clone or Upload the Project**
+
 Create a project directory on your local machine or Swecha.
 Add the following files to your project directory:
-The Python script: depth_segmentation.py
 
-The test image file(s):sampleimage
+* `depth_segmentation.py` (Main Python script)
+* Test image file(s) in the `test_images/` folder
 
-**3. Directory Structure**
-Organize your project directory as follows:
-
+### **3. Directory Structure**
 
 ```
 depth-estimation-segmentation/
@@ -44,125 +53,164 @@ depth-estimation-segmentation/
 ├── test_images/                # Folder for input images
 │   ├── image1.jpg
 │   ├── image2.png
-│   └── ...                     # Add all your test images here
-└── outputs/                    # Outputs (will be created after running the script)
+│   └── ...                     # Add your test images here
+└── outputs/                    # Output folder (auto-created)
 ```
 
-**4. Install Required Dependencies**
-Open a terminal in the project directory.
-Run the following command to install the required Python libraries:
+### **4. Install Required Dependencies**
 
-`pip install -r requirements.txt`
+Run this command in the terminal inside the project directory:
 
-**5**. **Verify the Python Script**
-Open the depth_segmentation.py file and verify:
-Image Path: Ensure the correct file name and path in the script:
+```bash
+pip install -r requirements.txt
+```
 
+### **5. Verify the Python Script**
 
-`image_path = 'Your image path'`
+Open `depth_segmentation.py` and update:
 
-change this path with your image path
+```python
+image_path = 'Your image path'  # <-- Replace with your image path
+```
 
 Ensure indentation and syntax are correct.
 
-**6. Run the Project**
-Run the Python script using this command:
+### **6. Run the Project**
 
-`python depth_segmentation.py`
+```bash
+python depth_segmentation.py
+```
 
-**Model Details**
-**Depth Estimation:**
-Model: Intel DPT Large
-Description: Pre-trained on large-scale datasets for precise depth estimation.
-Source: Intel Open Model Zoo.
+---
 
-**Semantic Segmentation:**
-Model: NVIDIA SegFormer
-Description: Lightweight transformer-based model designed for efficient segmentation.
-Source: NVIDIA Research.
+## **Model Details**
 
-**Outputs**
-**1. Depth Map**
-Displays the depth of the scene with a color gradient (e.g., plasma colormap).
+### **Depth Estimation**
 
-**2. Segmentation Map**
-Assigns class labels to objects in the image (e.g., Road, Car, Building).
-Marks boundaries and centroids for each detected object.
+* **Model**: Intel DPT Large
+* **Description**: Pre-trained model for accurate depth prediction
+* **Source**: Intel Open Model Zoo
 
-**3. Object Depth Table**
-A table listing the following for each detected object:
+### **Semantic Segmentation**
 
-Object Name: (e.g., Road, Car).
-Centroid: Coordinates of the object’s center.
-Depth at Centroid: Average depth value at the centroid.
+* **Model**: NVIDIA SegFormer
+* **Description**: Lightweight transformer-based model for efficient pixel-wise classification
+* **Source**: NVIDIA Research
 
-Example Output Table:
-| Object | Centroid  |Depth at Centroid |
-|--------|-----------|------------------|
-|Road    |(100, 200) |    	3.56        |
-|--------|-----------|__________________|
-|Building| (250, 450)|       8.74       |
-|--------|-----------|__________________|
+---
 
+## **Outputs**
 
+### **1. Depth Map**
 
-**Example Visual Outputs**
-**Depth Map:**
-Displays a gradient map showing the distance of objects from the camera.
+A gradient color-coded image (plasma colormap) showing distance of objects from the camera.
 
-**Segmentation Map:**
-Highlights objects in the scene with labeled boundaries and centroid markers.
+### **2. Segmentation Map**
 
-For output reference please see the sampleoutput file
+Pixel-wise class labels (e.g., Road, Car, Building) with boundaries and centroids marked.
 
-**Key Commands Recap**
-Install Dependencies:
+### **3. Object Depth Table**
 
-`pip install -r requirements.txt`
+A table listing:
 
-Run the Script:
+* **Object Name** (e.g., Road, Car)
+* **Centroid Coordinates**
+* **Depth at Centroid**
 
-`python depth_segmentation.py`
+**Example Table:**
 
-Share the Project
+| Object   | Centroid   | Depth at Centroid |
+| -------- | ---------- | ----------------- |
+| Road     | (100, 200) | 3.56              |
+| Building | (250, 450) | 8.74              |
 
-**Distribute the following files:**
+---
 
+## **Example Visual Outputs**
 
-depth_segmentation.py
+* **Depth Map**: Gradient map visualizing object distances.
+* **Segmentation Map**: Labeled objects with boundaries and centroids.
 
-requirements.txt
+---
 
-About this Project:
+## **Disaster Comparison and Prioritization Logic**
 
-This project leverages advanced deep learning techniques to perform **depth estimation** and **semantic segmentation** on images, with a strong focus on disaster response and scene analysis. Using state-of-the-art models—Intel DPT Large for depth estimation and NVIDIA SegFormer for semantic segmentation—the system processes an input RGB image to produce:
+After generating depth maps and segmentation masks, the system allows for **comparison between a pre-disaster image and a post-disaster image**.
 
-- A **depth map** that visualizes the distance of objects from the camera.
-- A **segmentation map** that labels each pixel according to object class (e.g., road, building, car, as well as disaster-specific classes like collapsed buildings, fallen trees, and debris).
-- A **tabular report** listing detected objects, their centroid coordinates, and their depth values.
-- A **semantic relationship graph** that maps the spatial structure and proximity of objects within the scene.
+### **Key Features of Disaster Comparison:**
 
-**Key Applications:**
-- **Disaster Assessment:** By comparing pre- and post-disaster images, the project can identify and map changes such as collapsed buildings and blocked roads, supporting rapid and automated damage assessment. This approach aligns with recent research that highlights the value of combining segmentation and classification for post-disaster management, enabling faster, more objective, and large-scale analysis compared to manual methods[1][2].
-- **Emergency Response Prioritization:** The semantic graph and depth data help emergency teams quickly locate and prioritize aid to the most affected or inaccessible areas, improving the efficiency of rescue and relief operations.
-- **Urban and Infrastructure Monitoring:** Beyond disaster scenarios, the system can be used for ongoing monitoring of urban environments, infrastructure, and environmental changes.
+* **Semantic Graph Comparison**:
 
-**Technical Highlights:**
-- **Automated, pixel-level scene understanding** using deep neural networks.
-- **Support for disaster-specific object classes** to enhance relevance in real-world crisis scenarios.
-- **Visual and structural outputs** (maps, tables, graphs) that are actionable and interpretable for both technical and non-technical stakeholders.
+  * The scene is converted into a graph with objects as nodes.
+  * Edges represent spatial relationships and proximities.
+  * Pre- and post-disaster graphs are compared to detect structural changes.
 
-In summary, this project provides a robust, automated framework for extracting actionable insights from images in disaster and urban contexts, helping to accelerate and improve the accuracy of critical decision-making processes.
+* **Evaluation Metrics**:
 
-This README.md file for guidance.
-Ensure users follow the directory structure and instructions provided above for seamless execution.
- 
- project Done by 
+  * Number of demolished vs. intact structures
+  * Degree of object disappearance (e.g., collapsed buildings, blocked roads)
+  * Shifts in object centroids or depth values
 
- Name           : University Id 
- 
- B. Ajith kumar :2200080242
+### **Graph-Based Evaluation**
 
- N. Sai krishna :2200080251
+Each region is evaluated by comparing:
 
- K.Visanth Keerthan Sai:2200080236
+* **Before Disaster Graph (G₁)**
+* **After Disaster Graph (G₂)**
+
+A **difference score** is computed based on:
+
+* Number of destroyed structures
+* Lost connectivity (e.g., roads cut off)
+* Depth changes indicating structural collapse
+
+### **Rescue Prioritization**
+
+Areas with the **highest damage scores** are flagged for **emergency response**:
+
+* **Ambulance Dispatch**
+* **Firefighter Units**
+* **Rescue and Relief Teams**
+
+This allows **smart, data-driven prioritization** in critical disaster scenarios.
+
+---
+
+## **Key Applications**
+
+* **Disaster Assessment**
+* **Emergency Response Prioritization**
+* **Urban & Infrastructure Monitoring**
+
+---
+
+## **Technical Highlights**
+
+* State-of-the-art deep learning with transformer-based segmentation
+* Pixel-level scene understanding
+* Disaster-aware object class handling
+* Graph-based evaluation for real-time prioritization
+
+---
+
+## **How to Share the Project**
+
+Distribute the following files:
+
+* `depth_segmentation.py`
+* `requirements.txt`
+* `README.md` (this guide)
+
+---
+
+## **Credits**
+
+**Project Done By:**
+
+| Name                    | University ID |
+| ----------------------- | ------------- |
+| B. Ajith Kumar          | 2200080242    |
+| N. Sai Krishna          | 2200080251    |
+| K. Visanth Keerthan Sai | 2200080236    |
+
+---
