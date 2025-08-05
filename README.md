@@ -1,7 +1,3 @@
-Here's the **edited version** of your project documentation with the requested update. The new section elaborates on how **pre- and post-disaster images** are compared through a **graph-based evaluation** to determine areas of maximum destruction and prioritize emergency response:
-
----
-
 # **Depth Estimation and Semantic Segmentation Project**
 
 ## **Project Overview**
